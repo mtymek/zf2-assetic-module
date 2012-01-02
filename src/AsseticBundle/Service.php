@@ -7,7 +7,8 @@ use Assetic\AssetManager,
     Assetic\AssetWriter,
     Assetic\Asset\AssetInterface,
     Assetic\Asset\AssetCache,
-    Assetic\Cache\FilesystemCache;
+    Assetic\Cache\FilesystemCache,
+    Zend\View\Renderer;
 
 class Service
 {
@@ -192,7 +193,7 @@ class Service
         return $result;
     }
 
-    public function setupViewHelpers(\Zend\View\PhpRenderer $view)
+    public function setupViewHelpers(Renderer $view)
     {
         #  generate from controller
         $result = $this->setupViewHelperForController($view);
@@ -205,7 +206,7 @@ class Service
         return $result;
     }
 
-    public function setupViewHelpersForRouter(\Zend\View\PhpRenderer $view)
+    public function setupViewHelpersForRouter(Renderer $view)
     {
         $assetOptions = $this->configuration->getController($this->getControllerName());
         if (!$assetOptions) {
@@ -223,7 +224,7 @@ class Service
         return true;
     }
 
-    public function setupViewHelperForController(\Zend\View\PhpRenderer $view)
+    public function setupViewHelperForController(Renderer $view)
     {
         $assetOptions = $this->configuration->getController($this->getControllerName());
         if (!$assetOptions) {
