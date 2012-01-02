@@ -46,7 +46,7 @@ return array(
                 'parameters' => array(
                     'config' => array(
                         'debug' => false,
-                        'webPath' => __DIR__ . '/../../../public',
+                        'webPath' => 'public',
                         //'load_function' => false,
                         //'append_html_head' => true,
 
